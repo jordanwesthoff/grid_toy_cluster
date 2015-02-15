@@ -1,0 +1,67 @@
+PTOOLS by Glen E. Gardner Jr.
+PSH.C and PCP.C PARALLEL TOOLS (PTOOLS)
+Copyright (C) 2005 Glen E. Gardner Jr.
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+
+
+
+WHAT IS IT ?
+
+PTOOLS is a set of simple parallel tools useful for 
+a clusterd work environment.
+This includes PSH a parallel SSH utility and PCP , a 
+parallel SCP utility.
+
+You should have a tar archive called ptools-1.1.0.tar.gz
+
+It contains the following files;
+
+Makefile (the makefile to build ptools)
+README (this file)
+psh.c (the psh source code)
+pcp.c (the pcp source code)
+pcp.1 (man page for pcp)
+psh.1 (man page for psh)
+LICENSE (The lesser GNU Public License)
+
+
+HOW DO I INSTALL IT ?
+
+You must be root to install ptools.
+
+extract the tar file: tar-xzvf ptools-1.3.0.tar.gz <enter>
+
+change to the ptools directory:  cd ptools-1.3.0 <enter> 
+
+Execute the makefile by typing "make" at the command prompt.
+then type "make install"
+
+You will need to create a file with a list of nodes in /etc
+
+/etc/nodelist
+
+The nodelist is a simple list of hosts which allows ssh access 
+to the host running ptools.  The nodelist may not contain whitespace 
+characters. In particular, each line is to be terminated with a 
+newline character only (NO SPACES IN, BEFORE, OR AFTER HOSTNAMES).
+Hosta may be listed by name or by IP address.
+
+Be sure the remote hosts allows ssh for the host using ptools.
+
+HOW DO I USE IT ?
+
+Read the man pages: man psh <enter>  or man pcp <enter>
+

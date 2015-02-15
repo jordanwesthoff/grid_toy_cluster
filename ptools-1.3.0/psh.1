@@ -1,0 +1,29 @@
+.TH PSH 1 "10/18/05" " " "PARALLEL SSH COMMAND"
+.SH NAME
+psh <arg> <command> \-  Executes <command> on remote hosts using ssh
+.SH DESCRIPTION
+psh Is very similar to ssh. It executes <command> on all hosts listed in /etc/nodelist using ssh. 
+
+If <arg> is -p the command is issued to all hosts listed in /etc/nodelist, in parallel. In this state psh will not block and the command prompt will return regardless of the command state on the remote hosts. 
+
+When -p is invoked, any return from the remote hosts is directed to $HOME/psh_out.txt.
+
+If <arg> is absent, or not -p, the first argument is assumed to be a valid shell command and will be launched on all hosts in /etc/nodelist in a serial fashion, in the same order as they appear in /etc/nodelist.
+
+
+.SH PITFALLS
+psh uses fork, and may exhaust network resources if a very large number of hosts are listed in /etc/nodelist
+
+.SH EXAMPLES
+"psh ls -alh" executes "ls -alh" on all hosts listed in /etc/nodelist, serially. Returning console output is directd to the originating host.
+
+"psh -p ls -alh" executes "ls-alh" on all nodes listed in /etc/nodelist, in parallel. Returning console output is sent to $HOME/psh_output.txt
+
+.SH AUTHOR
+"Written by Glen E. Gardner Jr."
+
+.SH LOCATION
+/usr/bin/psh
+
+.SH FILES
+/etc/nodelist

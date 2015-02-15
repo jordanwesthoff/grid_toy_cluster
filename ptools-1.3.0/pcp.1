@@ -1,0 +1,23 @@
+.TH PCP 1 "10/18/05" " " "PARALLEL SCP COMMAND"
+.SH NAME
+pcp <source> <dest> \-  Copies <source> to <dest> on remote hosts using scp.
+.SH DESCRIPTION
+pcp copies <source> from the originating host to <dest> using scp on all hosts listed in /etc/nodelist. pcp is parallel, and nonblocking, and the command prompt will return immediately regardless of the state of the processes on the remote hosts.
+pcp is identical to using "scp -rp", and will copy directories.
+
+.SH PITFALLS
+pcp uses fork, and may exceed network resources when used with a very large number of hosts in /etc/nodelist.
+
+.SH EXAMPLES
+"pcp myfile ."   copies "myfile" from the originating node to $HOME on all hosts listed in /etc/nodelist.
+
+"pcp myfile /usr/local/blah"  copies "myfile" from the originating host to /usr/local/blah on all hosts listed in /etc/nodelist.  
+
+.SH AUTHOR
+"Written by Glen E. Gardner Jr."
+
+.SH LOCATION
+/usr/bin/scp
+
+.SH FILES
+/etc/nodelist
